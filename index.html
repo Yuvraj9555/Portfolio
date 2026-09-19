@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Yuvraj Singh — QA Automation Engineer portfolio">
+  <title>Yuvraj Singh | QA Automation Engineer</title>
+  <style>
+    :root {
+      --bg: #070b14;
+      --panel: #0d1422;
+      --panel2: #111a2b;
+      --text: #eef4ff;
+      --muted: #94a3b8;
+      --line: rgba(148, 163, 184, .16);
+      --accent: #67e8f9;
+      --accent2: #a78bfa;
+      --success: #34d399;
+      --shadow: 0 20px 70px rgba(0, 0, 0, .35);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(103, 232, 249, .10), transparent 28%),
+        radial-gradient(circle at 90% 20%, rgba(167, 139, 250, .11), transparent 30%), var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto
+    }
+
+    nav {
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 20;
+      width: min(1000px, 92%);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      border: 1px solid var(--line);
+      background: rgba(7, 11, 20, .72);
+      backdrop-filter: blur(18px);
+      border-radius: 18px;
+      box-shadow: var(--shadow)
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: .5px
+    }
+
+    .logo span {
+      color: var(--accent)
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 20px;
+      font-size: 14px;
+      color: var(--muted)
+    }
+
+    .navlinks a:hover {
+      color: var(--text)
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 17px;
+      border-radius: 13px;
+      border: 1px solid var(--line);
+      font-weight: 700;
+      font-size: 14px;
+      transition: .25s
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #06101b;
+      border: 0
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(103, 232, 249, .16)
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 130px 0 70px;
+      position: relative
+    }
+
+    .gridbg {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(255, 255, 255, .025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .025) 1px, transparent 1px);
+      background-size: 55px 55px;
+      mask-image: linear-gradient(to bottom, black, transparent 85%);
+      pointer-events: none
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 60px;
+      align-items: center
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 12px;
+      margin-bottom: 15px
+    }
+
+    h1 {
+      font-size: clamp(45px, 7vw, 84px);
+      line-height: .98;
+      letter-spacing: -4px;
+      margin-bottom: 24px
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, #fff, var(--accent), #c4b5fd);
+      -webkit-background-clip: text;
+      color: transparent
+    }
+
+    .hero p {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 18px
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 38px
+    }
+
+    .stat {
+      padding: 18px;
+      border: 1px solid var(--line);
+      background: rgba(13, 20, 34, .6);
+      border-radius: 16px
+    }
+
+    .stat b {
+      display: block;
+      font-size: 25px
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 12px
+    }
+
+    .codecard {
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, rgba(17, 26, 43, .95), rgba(7, 11, 20, .95));
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transform: rotate(2deg)
+    }
+
+    .window {
+      padding: 13px 16px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      gap: 7px
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #64748b
+    }
+
+    .code {
+      padding: 25px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 13px;
+      color: #cbd5e1
+    }
+
+    .c1 {
+      color: #67e8f9
+    }
+
+    .c2 {
+      color: #c4b5fd
+    }
+
+    .c3 {
+      color: #86efac
+    }
+
+    .c4 {
+      color: #f9a8d4
+    }
+
+    section {
+      padding: 100px 0
+    }
+
+    .section-title {
+      font-size: 38px;
+      letter-spacing: -1.5px;
+      margin-bottom: 10px
+    }
+
+    .section-sub {
+      color: var(--muted);
+      max-width: 650px;
+      margin-bottom: 35px
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px
+    }
+
+    .card {
+      background: rgba(13, 20, 34, .7);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 25px;
+      transition: .3s
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(103, 232, 249, .35);
+      box-shadow: var(--shadow)
+    }
+
+    .icon {
+      font-size: 26px;
+      margin-bottom: 15px
+    }
+
+    .card h3 {
+      margin-bottom: 8px
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 17px
+    }
+
+    .tag {
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: #cbd5e1;
+      font-size: 12px;
+      background: rgba(255, 255, 255, .025)
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px
+    }
+
+    .skill {
+      padding: 19px;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: rgba(13, 20, 34, .62)
+    }
+
+    .skilltop {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-size: 14px
+    }
+
+    .bar {
+      height: 7px;
+      background: #172235;
+      border-radius: 99px;
+      overflow: hidden
+    }
+
+    .fill {
+      height: 100%;
+      width: var(--w);
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      border-radius: 99px
+    }
+
+    .project {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: center
+    }
+
+    .project+.project {
+      margin-top: 15px
+    }
+
+    .project .mini {
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    .project .arrow {
+      font-size: 25px;
+      color: var(--accent)
+    }
+
+    .timeline {
+      border-left: 1px solid var(--line);
+      padding-left: 25px
+    }
+
+    .timeitem {
+      position: relative;
+      margin-bottom: 28px
+    }
+
+    .timeitem:before {
+      content: "";
+      position: absolute;
+      left: -31px;
+      top: 7px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px rgba(103, 232, 249, .09)
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px
+    }
+
+    .contactbox {
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, rgba(17, 26, 43, .9), rgba(13, 20, 34, .65))
+    }
+
+    footer {
+      padding: 35px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: .7s
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: none
+    }
+
+    .mobile {
+      display: none
+    }
+
+    @media(max-width:800px) {
+
+      .hero-grid,
+      .contact,
+      .skills {
+        grid-template-columns: 1fr
+      }
+
+      .cards {
+        grid-template-columns: 1fr
+      }
+
+      .navlinks {
+        display: none
+      }
+
+      .mobile {
+        display: block
+      }
+
+      .codecard {
+        transform: none
+      }
+
+      h1 {
+        letter-spacing: -2px
+      }
+
+      .stats {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .hero {
+        padding-top: 120px
+      }
+    }
+
+    @media(max-width:480px) {
+      .stats {
+        grid-template-columns: 1fr
+      }
+
+      .actions .btn {
+        width: 100%;
+        justify-content: center
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a class="logo" href="#home">Yuvraj<span>.</span></a>
+    <div class="navlinks">
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a
+        href="#journey">Journey</a><a href="#contact">Contact</a>
+    </div>
+    <a class="btn primary mobile" href="#contact">Contact</a>
+  </nav>
+
+  <main id="home">
+    <section class="hero">
+      <div class="gridbg"></div>
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="eyebrow">QA Automation Engineer</div>
+          <h1>Breaking bugs.<br><span class="gradient">Building quality.</span></h1>
+          <p>I’m Yuvraj Singh, a QA-focused B.Tech CSE graduate specializing in manual testing, Selenium automation,
+            Java and SQL. I turn requirements into reliable test coverage and actionable defect reports.</p>
+          <div class="actions">
+            <a class="btn primary" href="#projects">Explore my work ↗</a>
+            <a class="btn" href="#contact">Let's connect</a>
+          </div>
+          <div class="stats">
+            <div class="stat"><b>QA</b><span>Testing Focus</span></div>
+            <div class="stat"><b>Java</b><span>Automation Core</span></div>
+            <div class="stat"><b>SQL</b><span>Data Validation</span></div>
+          </div>
+        </div>
+        <div class="codecard reveal">
+          <div class="window"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+          <pre class="code"><span class="c2">public class</span> <span class="c1">QualityEngineer</span> {
+  <span class="c2">private</span> String[] skills = {
+    <span class="c3">"Manual Testing"</span>,
+    <span class="c3">"Selenium Automation"</span>,
+    <span class="c3">"Advanced Selenium"</span>,
+    <span class="c3">"Java"</span>,
+    <span class="c3">"SQL"</span>
+  };
+
+  <span class="c2">public boolean</span> <span class="c1">shipWithConfidence</span>() {
+    <span class="c2">return</span> test() && automate()
+           && validate() && verify();
+  }
+}</pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container reveal">
+        <div class="eyebrow">01 — About</div>
+        <h2 class="section-title">A tester who thinks beyond the test case.</h2>
+        <p class="section-sub">My approach combines exploratory thinking with structured QA practices: understand the
+          requirement, design meaningful scenarios, automate repeatable flows, validate data, report defects clearly,
+          and verify fixes.</p>
+        <div class="cards">
+          <article class="card">
+            <div class="icon">🧪</div>
+            <h3>Quality Mindset</h3>
+            <p>Functional, smoke, sanity, regression, positive and negative testing with strong attention to edge cases.
+            </p>
+          </article>
+          <article class="card">
+            <div class="icon">⚙️</div>
+            <h3>Automation</h3>
+            <p>Selenium WebDriver with Java, TestNG, Page Object Model, reusable utilities, waits, locators and
+              data-driven testing.</p>
+          </article>
+          <article class="card">
+            <div class="icon">🔍</div>
+            <h3>Data Validation</h3>
+            <p>SQL-based backend validation, joins, filtering and database checks to verify that UI behavior matches
+              stored data.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container reveal">
+        <div class="eyebrow">02 — Technical Stack</div>
+        <h2 class="section-title">Tools I use to find what users shouldn't.</h2>
+        <p class="section-sub">A practical QA stack focused on manual coverage, automation reliability and technical
+          debugging.</p>
+        <div class="skills">
+          <div class="skill">
+            <div class="skilltop"><b>Manual Testing</b><span>Strong</span></div>
+            <div class="bar">
+              <div class="fill" style="--w:92%"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="skilltop"><b>Selenium Automation</b><span>Strong</span></div>
+            <div class="bar">
+              <div class="fill" style="--w:88%"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="skilltop"><b>Advanced Selenium</b><span>Hands-on</span></div>
+            <div class="bar">
+              <div class="fill" style="--w:82%"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="skilltop"><b>Java</b><span>Strong</span></div>
+            <div class="bar">
+              <div class="fill" style="--w:86%"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="skilltop"><b>SQL</b><span>Strong</span></div>
+            <div class="bar">
+              <div class="fill" style="--w:84%"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="skilltop"><b>TestNG / POM / DDT</b><span>Hands-on</span></div>
+            <div class="bar">
+              <div class="fill" style="--w:84%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="tags" style="margin-top:22px">
+          <span class="tag">Jira</span><span class="tag">Postman</span><span class="tag">Maven</span><span
+            class="tag">Git/GitHub</span><span class="tag">XPath</span><span class="tag">CSS Selectors</span><span
+            class="tag">WebDriverWait</span><span class="tag">Actions</span><span
+            class="tag">JavaScriptExecutor</span><span class="tag">IFrames</span><span class="tag">Screenshots</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container reveal">
+        <div class="eyebrow">03 — Projects</div>
+        <h2 class="section-title">Selected QA work.</h2>
+        <p class="section-sub">Replace the demo links below with your GitHub repositories, live projects or case-study
+          pages.</p>
+        <div class="card project">
+          <div>
+            <h3>VTiger CRM — Selenium Automation</h3>
+            <p class="mini">Automated CRM activity/event workflows using Java + Selenium + TestNG with Page Object
+              Model, reusable utilities, waits and verification.</p>
+            <div class="tags"><span class="tag">Selenium</span><span class="tag">Java</span><span
+                class="tag">TestNG</span><span class="tag">POM</span><span class="tag">Maven</span></div>
+          </div><span class="arrow">↗</span>
+        </div>
+        <div class="card project">
+          <div>
+            <h3>E-Commerce Web App — Manual Testing</h3>
+            <p class="mini">Designed and executed test scenarios for login, product/cart, checkout and payment flows;
+              logged and verified defects through Jira.</p>
+            <div class="tags"><span class="tag">Functional</span><span class="tag">Regression</span><span
+                class="tag">Smoke</span><span class="tag">Jira</span></div>
+          </div><span class="arrow">↗</span>
+        </div>
+        <div class="card project">
+          <div>
+            <h3>Data-Driven Selenium Framework</h3>
+            <p class="mini">Framework concept using external test data, reusable Java utilities, properties
+              configuration and structured test execution.</p>
+            <div class="tags"><span class="tag">DDT</span><span class="tag">Properties</span><span
+                class="tag">Excel</span><span class="tag">Java</span></div>
+          </div><span class="arrow">↗</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="journey">
+      <div class="container reveal">
+        <div class="eyebrow">04 — Journey</div>
+        <h2 class="section-title">From code to quality.</h2>
+        <div class="timeline">
+          <div class="timeitem">
+            <h3>B.Tech — Computer Science & Engineering</h3>
+            <p class="section-sub">Built a foundation in programming, databases, web technologies and software
+              engineering.</p>
+          </div>
+          <div class="timeitem">
+            <h3>QA & Automation Focus</h3>
+            <p class="section-sub">Developed practical skills in manual testing, Java, SQL, Selenium WebDriver, TestNG,
+              POM and data-driven testing.</p>
+          </div>
+          <div class="timeitem">
+            <h3>Hands-on CRM Automation</h3>
+            <p class="section-sub">Worked on VTiger CRM automation flows with reusable page objects and utilities.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container reveal">
+        <div class="eyebrow">05 — Contact</div>
+        <h2 class="section-title">Have a quality problem?</h2>
+        <p class="section-sub">I'm open to QA Tester, Manual Testing and Automation Testing opportunities.</p>
+        <div class="contact">
+          <div class="contactbox">
+            <h3>Yuvraj Singh</h3>
+            <p style="color:var(--muted);margin:10px 0 20px">QA / Automation Testing Engineer</p>
+            <div class="actions"><a class="btn primary" href="mailto:ys608836@gmail.com">Email me</a><a class="btn"
+                href="https://www.linkedin.com/in/yuvraj-singh-b6b943287/" target="_blank">LinkedIn ↗</a><a class="btn"
+                href="https://github.com/Yuvraj9555/java-selenium" target="_blank">GitHub ↗</a></div>
+          </div>
+          <div class="contactbox">
+            <h3>Core toolkit</h3>
+            <div class="tags"><span class="tag">Java</span><span class="tag">SQL</span><span class="tag">Manual
+                Testing</span><span class="tag">Selenium</span><span class="tag">Advanced Selenium</span><span
+                class="tag">TestNG</span><span class="tag">Jira</span><span class="tag">Postman</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container">© <span id="year"></span> Yuvraj Singh · QA Automation Portfolio</div>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const observer = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); }), { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+
+</html>
